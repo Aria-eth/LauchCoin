@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-primary-500/30 text-primary-100;
+  }
+}
+
+@layer components {
+  /* Gradient backgrounds */
+  .gradient-bg {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0a0a0f 100%);
+  }
+
+  .gradient-bg-radial {
+    background: radial-gradient(circle at 30% 50%, #1a1a2e 0%, #16213e 40%, #0a0a0f 100%);
+  }
+
+  /* Text gradients */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.3));
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+  }
+
+  /* Card styles */
+  .card-gradient {
+    @apply bg-gradient-to-br from-navy-700/50 to-purple-800/50 backdrop-blur-xl border border-primary-500/10;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-primary-500 text-navy-900 font-semibold rounded-lg hover:bg-primary-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-500/25;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-primary-500 text-primary-500 font-semibold rounded-lg hover:bg-primary-500 hover:text-navy-900 transition-all duration-300 hover:scale-105;
+  }
+
+  /* Input styles */
+  .input-field {
+    @apply w-full px-4 py-3 bg-navy-800/50 border border-primary-500/20 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30 transition-all duration-300;
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  /* Animation delays */
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
+
+@layer utilities {
+  /* Perspective for 3D effects */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  /* Transform style */
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Backface visibility */
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  /* Grid pattern background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 165, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 165, 0, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Hero pattern background */
+  .hero-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 165, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 165, 0, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
