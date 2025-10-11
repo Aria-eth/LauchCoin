@@ -12,7 +12,7 @@ export interface TeamMember {
   image: string;
   social?: {
     twitter?: string;
-    linkedin?: string;
+    telegram?: string;
     github?: string;
   };
 }

@@ -1,60 +1,60 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Shield, Code, Users, TrendingUp, Award, Clock } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Rocket, Users, Flame, Zap, Award, Clock } from "lucide-react";
+import styles from "@/styles/sections/StatsSection.module.css";
 
 const stats = [
   {
-    icon: Shield,
-    value: 2847,
-    suffix: '+',
-    label: 'Audits Completed',
-    description: 'Smart contracts secured',
-    color: 'text-primary-400'
+    icon: Rocket,
+    value: 1,
+    suffix: "",
+    label: "Fair Launch",
+    description: "Launching on pump.fun",
+    color: "text-primary-400",
   },
   {
-    icon: Code,
-    value: 12.5,
-    suffix: 'M+',
-    label: 'Lines Reviewed',
-    description: 'Code analyzed for vulnerabilities',
-    color: 'text-blue-400'
-  },
-  {
-    icon: TrendingUp,
-    value: 8.2,
-    prefix: '$',
-    suffix: 'B',
-    label: 'TVL Protected',
-    description: 'Total value locked secured',
-    color: 'text-green-400'
+    icon: Flame,
+    value: 100,
+    suffix: "%",
+    label: "Liquidity Burn",
+    description: "LP burned at migration",
+    color: "text-orange-400",
   },
   {
     icon: Users,
-    value: 500,
-    suffix: '+',
-    label: 'Happy Clients',
-    description: 'Projects trust our expertise',
-    color: 'text-purple-400'
+    value: 5,
+    suffix: "k+",
+    label: "Early Supporters",
+    description: "Community growing fast",
+    color: "text-purple-400",
+  },
+  {
+    icon: Zap,
+    value: 50,
+    suffix: "+",
+    label: "Signal Models",
+    description: "Curated strategies",
+    color: "text-blue-400",
   },
   {
     icon: Award,
-    value: 99.8,
-    suffix: '%',
-    label: 'Success Rate',
-    description: 'Client satisfaction score',
-    color: 'text-yellow-400'
+    value: 99.9,
+    suffix: "%",
+    label: "Uptime",
+    description: "Bot reliability",
+    color: "text-yellow-400",
   },
   {
     icon: Clock,
     value: 24,
-    suffix: '/7',
-    label: 'Support Available',
-    description: 'Round-the-clock assistance',
-    color: 'text-red-400'
-  }
+    suffix: "/7",
+    label: "Alerts",
+    description: "Real-time notifications",
+    color: "text-green-400",
+  },
 ];
 
 interface CounterProps {
@@ -65,17 +65,17 @@ interface CounterProps {
   decimals?: number;
 }
 
-const Counter: React.FC<CounterProps> = ({ 
-  end, 
-  prefix = '', 
-  suffix = '', 
+const Counter: React.FC<CounterProps> = ({
+  end,
+  prefix = "",
+  suffix = "",
   duration = 2,
-  decimals = 0 
+  decimals = 0,
 }) => {
   const [count, setCount] = useState(0);
   const [ref, inView] = useInView({
     threshold: 0.3,
-    triggerOnce: true
+    triggerOnce: true,
   });
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const Counter: React.FC<CounterProps> = ({
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      
+
       const currentCount = progress * end;
       setCount(currentCount);
 
@@ -107,7 +107,9 @@ const Counter: React.FC<CounterProps> = ({
 
   return (
     <span ref={ref}>
-      {prefix}{count.toFixed(decimals)}{suffix}
+      {prefix}
+      {count.toFixed(decimals)}
+      {suffix}
     </span>
   );
 };
@@ -115,48 +117,37 @@ const Counter: React.FC<CounterProps> = ({
 export const StatsSection: React.FC = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
-    triggerOnce: true
+    triggerOnce: true,
   });
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-navy-900 to-background">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <motion.div
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-          className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-purple-500/5"
-          style={{ backgroundSize: '200% 200%' }}
-        />
-      </div>
+    <section className={styles.section}>
+      {/* Minimal dotted background */}
+      <div className={styles.pattern} />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium mb-4">
-            Our Impact
+          <span className="inline-block px-2 sm:px-3 lg:px-4 py-1 sm:py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+            quntaAI in Numbers
           </span>
-          <h2 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-            Numbers That Speak Volumes
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-3 sm:mb-4 lg:mb-6">
+            Built for Traders on Solana
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Our track record demonstrates our commitment to securing the blockchain ecosystem
+          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 max-w-3xl mx-auto px-3 sm:px-4">
+            Utility-first token with real tools, bots, and dashboards
           </p>
         </motion.div>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          ref={ref}
+          className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 xl:gap-8"
+        >
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -165,41 +156,51 @@ export const StatsSection: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="relative p-8 rounded-2xl bg-gradient-to-br from-navy-800/50 to-purple-900/30 border border-primary-500/10 backdrop-blur-sm hover:border-primary-500/30 transition-all duration-300">
+              <div className={styles.card}>
                 {/* Icon */}
-                <div className="mb-6">
-                  <div className={`inline-flex p-3 rounded-xl bg-navy-800/50 ${stat.color}`}>
-                    <stat.icon className="w-8 h-8" />
+                <div className="mb-3 sm:mb-4 lg:mb-6">
+                  <div
+                    className={`inline-flex p-2 sm:p-3 rounded-xl bg-navy-800/50 ${stat.color}`}
+                  >
+                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
                   </div>
                 </div>
 
                 {/* Counter */}
                 <div className="mb-2">
-                  <span className="text-4xl lg:text-5xl font-bold text-white">
+                  <span className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white">
                     <Counter
                       end={stat.value}
                       prefix={stat.prefix}
                       suffix={stat.suffix}
-                      decimals={stat.label.includes('Lines') || stat.label.includes('TVL') || stat.label.includes('Success') ? 1 : 0}
+                      decimals={
+                        stat.label.includes("Lines") ||
+                        stat.label.includes("TVL") ||
+                        stat.label.includes("Success")
+                          ? 1
+                          : 0
+                      }
                     />
                   </span>
                 </div>
 
                 {/* Label */}
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">
                   {stat.label}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-200 text-xs sm:text-sm">
                   {stat.description}
                 </p>
 
                 {/* Hover Effect */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary-500/0 to-primary-500/0 group-hover:from-primary-500/5 group-hover:to-transparent transition-all duration-300 pointer-events-none" />
-                
+
                 {/* Glow Effect */}
-                <div className={`absolute -inset-0.5 rounded-2xl ${stat.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 pointer-events-none`} />
+                <div
+                  className={`absolute -inset-0.5 rounded-2xl ${stat.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 pointer-events-none`}
+                />
               </div>
             </motion.div>
           ))}
@@ -211,25 +212,19 @@ export const StatsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-8 sm:mt-12 lg:mt-16 text-center"
         >
-          <p className="text-gray-400 mb-6">
-            Join hundreds of projects that trust FortKnox Security
+          <p className="text-gray-200 mb-3 sm:mb-4 lg:mb-6 text-sm sm:text-base">
+            Get quntaAI on Solana now via pump.fun
           </p>
-          <div className="flex flex-wrap justify-center gap-8">
-            {['Ethereum', 'BSC', 'Polygon', 'Avalanche', 'Solana'].map((chain, index) => (
-              <motion.div
-                key={chain}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-gray-500 font-medium hover:text-primary-400 transition-colors"
-              >
-                {chain}
-              </motion.div>
-            ))}
-          </div>
+          <a
+            href="https://pump.fun/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary inline-flex"
+          >
+            Buy on pump.fun
+          </a>
         </motion.div>
       </div>
     </section>

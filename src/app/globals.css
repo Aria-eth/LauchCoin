@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0f;
+  /* Minimal meme-coin palette */
+  --background: #0d0f12; /* near-black with a hint of blue */
   --foreground: #ffffff;
+  --bg-accent: #111418; /* cards/sections */
+  --dot: rgba(255, 180, 26, 0.08); /* soft fun orange */
+  --dot-strong: rgba(255, 180, 26, 0.15);
 }
 
 @layer base {
@@ -16,8 +20,8 @@
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -36,16 +40,34 @@
   ::selection {
     @apply bg-primary-500/30 text-primary-100;
   }
+
+  /* Better text rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Responsive typography */
+  html {
+    font-size: 14px;
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 640px) {
+    html {
+      font-size: 16px;
+    }
+  }
 }
 
 @layer components {
   /* Gradient backgrounds */
   .gradient-bg {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0a0a0f 100%);
+    background: var(--background);
   }
 
   .gradient-bg-radial {
-    background: radial-gradient(circle at 30% 50%, #1a1a2e 0%, #16213e 40%, #0a0a0f 100%);
+    background: var(--background);
   }
 
   /* Text gradients */
@@ -64,26 +86,51 @@
 
   /* Card styles */
   .card-gradient {
-    @apply bg-gradient-to-br from-navy-700/50 to-purple-800/50 backdrop-blur-xl border border-primary-500/10;
+    @apply backdrop-blur-xl border border-primary-500/10;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.0) 100%);
   }
 
   /* Button styles */
   .btn-primary {
-    @apply px-6 py-3 bg-primary-500 text-navy-900 font-semibold rounded-lg hover:bg-primary-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-500/25;
+    @apply px-3 sm:px-6 py-2 sm:py-3 bg-primary-500 text-navy-900 font-semibold rounded-lg hover:bg-primary-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-500/25 text-sm sm:text-base whitespace-nowrap;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-transparent border-2 border-primary-500 text-primary-500 font-semibold rounded-lg hover:bg-primary-500 hover:text-navy-900 transition-all duration-300 hover:scale-105;
+    @apply px-3 sm:px-6 py-2 sm:py-3 bg-transparent border-2 border-primary-500 text-primary-500 font-semibold rounded-lg hover:bg-primary-500 hover:text-navy-900 transition-all duration-300 hover:scale-105 text-sm sm:text-base whitespace-nowrap;
   }
 
   /* Input styles */
   .input-field {
-    @apply w-full px-4 py-3 bg-navy-800/50 border border-primary-500/20 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30 transition-all duration-300;
+    @apply w-full px-3 sm:px-4 py-2 sm:py-3 bg-navy-800/50 border border-primary-500/20 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30 transition-all duration-300 text-sm sm:text-base;
   }
 
   /* Glass morphism */
   .glass {
     @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  /* Container improvements - much more compact on mobile */
+  .container {
+    @apply mx-auto px-3 sm:px-6 lg:px-8;
+    max-width: 1280px;
+  }
+
+  /* Section spacing - significantly reduced on mobile */
+  .section-padding {
+    @apply py-8 sm:py-16 lg:py-24;
+  }
+
+  .section-padding-sm {
+    @apply py-6 sm:py-12 lg:py-16;
+  }
+
+  /* Compact mobile spacing utilities */
+  .mobile-compact {
+    @apply py-4 sm:py-8 lg:py-12;
+  }
+
+  .mobile-compact-sm {
+    @apply py-3 sm:py-6 lg:py-10;
   }
 
   /* Animation delays */
@@ -101,6 +148,149 @@
   }
   .animation-delay-1000 {
     animation-delay: 1000ms;
+  }
+
+  /* Glitch animations */
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+      opacity: 1;
+    }
+    20% {
+      transform: translate(-2px, 2px);
+      opacity: 0.8;
+    }
+    40% {
+      transform: translate(-2px, -2px);
+      opacity: 0.9;
+    }
+    60% {
+      transform: translate(2px, 2px);
+      opacity: 0.7;
+    }
+    80% {
+      transform: translate(2px, -2px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .glitch-effect {
+    animation: glitch 0.3s infinite;
+  }
+
+  .sparkle-effect {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  /* Responsive text utilities */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  .text-responsive-4xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl;
+  }
+
+  /* Responsive spacing utilities - more compact on mobile */
+  .space-responsive-sm {
+    @apply space-y-1 sm:space-y-3;
+  }
+
+  .space-responsive-base {
+    @apply space-y-2 sm:space-y-4;
+  }
+
+  .space-responsive-lg {
+    @apply space-y-3 sm:space-y-6;
+  }
+
+  .space-responsive-xl {
+    @apply space-y-4 sm:space-y-8;
+  }
+
+  /* Responsive gap utilities - more compact on mobile */
+  .gap-responsive-sm {
+    @apply gap-1 sm:gap-3;
+  }
+
+  .gap-responsive-base {
+    @apply gap-2 sm:gap-4;
+  }
+
+  .gap-responsive-lg {
+    @apply gap-3 sm:gap-6;
+  }
+
+  .gap-responsive-xl {
+    @apply gap-4 sm:gap-8;
+  }
+
+  /* Mobile-specific compact spacing */
+  .mobile-gap-sm {
+    @apply gap-2 sm:gap-4;
+  }
+
+  .mobile-gap-base {
+    @apply gap-3 sm:gap-6;
+  }
+
+  .mobile-gap-lg {
+    @apply gap-4 sm:gap-8;
+  }
+
+  .mobile-mb-sm {
+    @apply mb-2 sm:mb-4;
+  }
+
+  .mobile-mb-base {
+    @apply mb-3 sm:mb-6;
+  }
+
+  .mobile-mb-lg {
+    @apply mb-4 sm:mb-8;
+  }
+
+  .mobile-mb-xl {
+    @apply mb-6 sm:mb-12;
   }
 }
 
@@ -122,17 +312,100 @@
 
   /* Grid pattern background */
   .grid-pattern {
-    background-image: 
-      linear-gradient(rgba(255, 165, 0, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 165, 0, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+    /* simple dotted pattern */
+    background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+    background-size: 18px 18px;
   }
 
   /* Hero pattern background */
   .hero-pattern {
-    background-image: 
-      linear-gradient(rgba(255, 165, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 165, 0, 0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-image: radial-gradient(var(--dot-strong) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Responsive padding utilities - more compact on mobile */
+  .p-responsive-sm {
+    @apply p-1 sm:p-3;
+  }
+
+  .p-responsive-base {
+    @apply p-2 sm:p-4;
+  }
+
+  .p-responsive-lg {
+    @apply p-3 sm:p-6;
+  }
+
+  .p-responsive-xl {
+    @apply p-4 sm:p-8;
+  }
+
+  /* Responsive margin utilities - more compact on mobile */
+  .m-responsive-sm {
+    @apply m-1 sm:m-3;
+  }
+
+  .m-responsive-base {
+    @apply m-2 sm:m-4;
+  }
+
+  .m-responsive-lg {
+    @apply m-3 sm:m-6;
+  }
+
+  .m-responsive-xl {
+    @apply m-4 sm:m-8;
+  }
+
+  /* Safe area utilities for mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Touch target improvements */
+  .touch-target {
+    @apply min-h-[11px] min-w-[11px];
+  }
+
+  /* Focus visible improvements */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900;
+  }
+
+  /* Mobile-specific compact utilities */
+  .mobile-p-2 {
+    @apply p-2 sm:p-4;
+  }
+
+  .mobile-p-3 {
+    @apply p-3 sm:p-6;
+  }
+
+  .mobile-p-4 {
+    @apply p-4 sm:p-8;
+  }
+
+  .mobile-m-2 {
+    @apply m-2 sm:m-4;
+  }
+
+  .mobile-m-3 {
+    @apply m-3 sm:m-6;
+  }
+
+  .mobile-m-4 {
+    @apply m-4 sm:m-8;
   }
 }

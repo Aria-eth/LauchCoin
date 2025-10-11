@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
-import { ChatWidget } from "@/components/ui/ChatWidget";
 import { Toaster } from "react-hot-toast";
+// Removed galactic background for a minimal theme
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,21 +12,28 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FortKnox Security - Leading Smart Contract Audit Firm",
-  description: "Industry-leading blockchain security audits and consulting services to protect your DeFi protocols from vulnerabilities and exploits.",
-  keywords: "smart contract audit, blockchain security, DeFi audit, security consulting, penetration testing",
-  authors: [{ name: "FortKnox Security" }],
-  openGraph: {
-    title: "FortKnox Security - Leading Smart Contract Audit Firm",
-    description: "Industry-leading blockchain security audits and consulting services",
-    images: ["/og-image.png"],
-    type: "website",
+  title: "quantaAI – AI-powered utility token launching on pump.fun",
+  description:
+    "quantaAI is an AI utility token delivering trader tools, signal bots, and research assistants. Fair launch on pump.fun.",
+  keywords:
+    "quantaAI, pump.fun, Solana, meme coin, AI token, utility, trader tools, telegram bot",
+  authors: [{ name: "quantaAI" }],
+  icons: {
+    icon: [
+      { url: "/logo.jpeg", type: "image/jpeg" },
+      { url: "/favicon.ico" },
+    ],
+    apple: [
+      { url: "/logo.jpeg", type: "image/jpeg" },
+    ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "FortKnox Security",
-    description: "Leading Smart Contract Audit Firm",
-    images: ["/twitter-image.png"],
+  manifest: "/site.webmanifest",
+  openGraph: {
+    title: "quantaAI – AI-powered utility token",
+    description:
+      "Buy quantaAI on pump.fun and unlock AI trader utilities.",
+    images: ["/logo.jpeg"],
+    type: "website",
   },
 };
 
@@ -38,20 +45,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
+        {/* Minimal background is handled via globals.css */}
         <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <main className="min-h-screen relative z-10">{children}</main>
         <Footer />
-        <ChatWidget />
         <Toaster
           position="bottom-right"
           toastOptions={{
             duration: 4000,
             style: {
-              background: '#1a1a2e',
-              color: '#fff',
-              border: '1px solid #FFA500',
+              background: "#1a1a2e",
+              color: "#fff",
+              border: "1px solid #FFA500",
             },
           }}
         />

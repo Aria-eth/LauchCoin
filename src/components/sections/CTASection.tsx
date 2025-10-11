@@ -1,65 +1,24 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight, Shield, CheckCircle, Zap } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Shield, CheckCircle, Zap } from "lucide-react";
+import styles from "@/styles/sections/CTASection.module.css";
 
 const benefits = [
-  { icon: Shield, text: '100% Security Guarantee' },
-  { icon: Zap, text: 'Fast 48-Hour Turnaround' },
-  { icon: CheckCircle, text: 'Post-Audit Support' },
+  { icon: Shield, text: "100% Security Guarantee" },
+  { icon: Zap, text: "Fast 48-Hour Turnaround" },
+  { icon: CheckCircle, text: "Post-Audit Support" },
 ];
 
 export const CTASection: React.FC = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Animated Gradient Background */}
-      <motion.div
-        animate={{
-          backgroundPosition: ['0% 0%', '100% 100%'],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          repeatType: 'reverse',
-        }}
-        className="absolute inset-0 opacity-80"
-        style={{
-          background: 'linear-gradient(135deg, #FFA500 0%, #FF8C00 25%, #FF6347 50%, #FFA500 75%, #FF8C00 100%)',
-          backgroundSize: '400% 400%',
-        }}
-      />
-      
-      {/* Overlay Pattern */}
-      <div className="absolute inset-0 bg-navy-900/90" />
-              <div className="absolute inset-0 hero-pattern opacity-10" />
+    <section className={styles.section}>
+      {/* Minimal patterned background */}
+      <div className={styles.pattern} />
 
-      {/* Floating Elements */}
-      <motion.div
-        animate={{
-          y: [-20, 20, -20],
-          rotate: [0, 360],
-        }}
-        transition={{
-          y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-          rotate: { duration: 20, repeat: Infinity, ease: "linear" }
-        }}
-        className="absolute top-20 left-20 w-32 h-32 bg-primary-500/10 rounded-full blur-3xl"
-      />
-      <motion.div
-        animate={{
-          y: [20, -20, 20],
-          rotate: [360, 0],
-        }}
-        transition={{
-          y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-          rotate: { duration: 25, repeat: Infinity, ease: "linear" }
-        }}
-        className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"
-      />
-
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,10 +32,10 @@ export const CTASection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium mb-6"
+            className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs sm:text-sm font-medium mb-4 sm:mb-6"
           >
-            <Shield className="w-4 h-4" />
-            Limited Time Offer - 20% Off First Audit
+            <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
+            Early Community – Join Telegram Now
           </motion.div>
 
           {/* Heading */}
@@ -85,18 +44,18 @@ export const CTASection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-6xl font-heading font-bold text-white mb-6"
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-heading font-bold text-white mb-3 sm:mb-4 lg:mb-6"
           >
-            Ready to Secure Your
-            <span className="block mt-2">
+            Ready to Join
+            <span className="block mt-1 sm:mt-2">
               <span className="relative inline-block">
-                Smart Contracts?
+                quntaAI?
                 <motion.div
                   initial={{ width: 0 }}
-                  whileInView={{ width: '100%' }}
+                  whileInView={{ width: "100%" }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                   viewport={{ once: true }}
-                  className="absolute bottom-0 left-0 h-1 bg-primary-400"
+                  className="absolute bottom-0 left-0 h-0.5 sm:h-1 bg-primary-400"
                 />
               </span>
             </span>
@@ -108,9 +67,9 @@ export const CTASection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto"
+            className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto"
           >
-            Don't wait for a vulnerability to be exploited. Get your smart contracts audited by industry-leading security experts today.
+            Buy on pump.fun and unlock AI trader utilities: signals, bot, and research copilot.
           </motion.p>
 
           {/* Benefits */}
@@ -119,7 +78,7 @@ export const CTASection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-6 mb-10"
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 lg:mb-10"
           >
             {benefits.map((benefit, index) => (
               <motion.div
@@ -128,9 +87,9 @@ export const CTASection: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-2 text-gray-200"
+                className="flex items-center gap-1 sm:gap-2 text-gray-200 text-xs sm:text-sm lg:text-base"
               >
-                <benefit.icon className="w-5 h-5 text-primary-400" />
+                <benefit.icon className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-primary-400" />
                 <span>{benefit.text}</span>
               </motion.div>
             ))}
@@ -142,24 +101,24 @@ export const CTASection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
           >
-            <Link
-              href="/audit-request"
-              className="group relative inline-flex items-center gap-2 px-8 py-4 bg-white text-navy-900 font-bold rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl"
+            <a
+              href="https://pump.fun/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 bg-white text-navy-900 font-bold rounded-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl text-sm sm:text-base"
             >
-              Get Started Now
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              
-              {/* Glow Effect */}
+              Buy on pump.fun
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               <div className="absolute -inset-1 bg-white/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </Link>
-            
+            </a>
+
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300"
+              href="https://t.me/"
+              className="inline-flex items-center gap-2 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
             >
-              Schedule Consultation
+              Join Telegram
             </Link>
           </motion.div>
 
@@ -169,19 +128,19 @@ export const CTASection: React.FC = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
             viewport={{ once: true }}
-            className="mt-12 flex items-center justify-center gap-8 text-gray-300"
+            className="mt-8 sm:mt-10 lg:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-gray-300"
           >
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-green-400" />
-              <span className="text-sm">SSL Secured</span>
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Shield className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-green-400" />
+              <span className="text-xs sm:text-sm">SSL Secured</span>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-400" />
-              <span className="text-sm">100% Confidential</span>
+            <div className="flex items-center gap-1 sm:gap-2">
+              <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-green-400" />
+              <span className="text-xs sm:text-sm">100% Confidential</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Zap className="w-5 h-5 text-green-400" />
-              <span className="text-sm">Instant Response</span>
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Zap className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-green-400" />
+              <span className="text-xs sm:text-sm">Instant Response</span>
             </div>
           </motion.div>
         </motion.div>

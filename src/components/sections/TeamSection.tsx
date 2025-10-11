@@ -1,90 +1,50 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Github } from 'lucide-react';
-import { TeamMember } from '@/types';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Github, MessageCircle } from "lucide-react";
+import { TeamMember } from "@/types";
+
+/* --------------------------------------------------------------------------
+   Key fix: <Image> with "fill" needs its parent to have an explicit size.   
+   We now wrap each <Image> in a div with w-full and aspect-square to ensure
+   proper dimensions, so the photos actually render.                         
+   ------------------------------------------------------------------------*/
 
 const teamMembers: TeamMember[] = [
   {
-    id: '1',
-    name: 'Marcus Chen',
-    role: 'Founder & CEO',
-    bio: 'Former security lead at major DeFi protocols. 15+ years in cybersecurity.',
-    image: 'https://i.pravatar.cc/300?img=11',
+    id: "1",
+    name: "Alex",
+    role: "Co-Founder & Lead Security Researcher",
+    bio: "Former security lead at major DeFi protocols with 15+ years in cybersecurity. Expert in smart contract vulnerabilities and blockchain security architecture.",
+    image: "/alex-prof.png",
     social: {
-      linkedin: '#',
-      twitter: '#',
-      github: '#'
-    }
+      telegram: "https://t.me/AlexFKS_1998",
+      github: "https://github.com/FortKnox-sec",
+    },
   },
   {
-    id: '2',
-    name: 'Sarah Rodriguez',
-    role: 'Head of Security',
-    bio: 'Expert in smart contract vulnerabilities. Author of multiple security papers.',
-    image: 'https://i.pravatar.cc/300?img=20',
+    id: "2",
+    name: "Mia",
+    role: "Co-Founder & Lead Security Researcher",
+    bio: "Specializes in DeFi protocol security with expertise in EVM vulnerabilities. Author of multiple security papers and former blockchain researcher.",
+    image: "/mia-prof.png",
     social: {
-      linkedin: '#',
-      twitter: '#',
-      github: '#'
-    }
+      telegram: "https://t.me/Mia_FKS",
+      github: "https://github.com/FortKnox-sec",
+    },
   },
-  {
-    id: '3',
-    name: 'Alex Thompson',
-    role: 'Lead Auditor',
-    bio: 'Discovered critical vulnerabilities in 50+ protocols. Solidity expert.',
-    image: 'https://i.pravatar.cc/300?img=12',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      github: '#'
-    }
-  },
-  {
-    id: '4',
-    name: 'Emily Zhang',
-    role: 'Senior Security Engineer',
-    bio: 'Specializes in DeFi protocol architecture. Former blockchain researcher.',
-    image: 'https://i.pravatar.cc/300?img=21',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      github: '#'
-    }
-  },
-  {
-    id: '5',
-    name: 'David Kim',
-    role: 'Security Researcher',
-    bio: 'White hat hacker with focus on EVM security. Bug bounty specialist.',
-    image: 'https://i.pravatar.cc/300?img=13',
-    social: {
-      linkedin: '#',
-      twitter: '#'
-    }
-  },
-  {
-    id: '6',
-    name: 'Lisa Johnson',
-    role: 'Technical Advisor',
-    bio: 'Former CTO at leading crypto exchange. 20+ years in software security.',
-    image: 'https://i.pravatar.cc/300?img=22',
-    social: {
-      linkedin: '#',
-      twitter: '#'
-    }
-  }
 ];
 
 export const TeamSection: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden">
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background to-navy-900/50" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,12 +58,14 @@ export const TeamSection: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
             Meet the Security Experts
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Our team consists of world-class security researchers, auditors, and blockchain experts dedicated to securing the DeFi ecosystem
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            Our core team consists of world-class security researchers and
+            blockchain experts dedicated to securing the DeFi ecosystem
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Team grid */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
@@ -113,64 +75,55 @@ export const TeamSection: React.FC = () => {
               viewport={{ once: true }}
               className="group relative"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-800/50 to-purple-900/30 border border-primary-500/10 hover:border-primary-500/30 transition-all duration-300">
-                {/* Image Container */}
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent" />
-                  
-                  {/* Social Links - Overlay */}
-                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {member.social?.linkedin && (
-                      <a
-                        href={member.social.linkedin}
-                        className="p-2 bg-navy-800/80 backdrop-blur-sm rounded-lg text-gray-400 hover:text-primary-400 hover:bg-navy-700/80 transition-all"
-                        aria-label={`${member.name} LinkedIn`}
-                      >
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.social?.twitter && (
-                      <a
-                        href={member.social.twitter}
-                        className="p-2 bg-navy-800/80 backdrop-blur-sm rounded-lg text-gray-400 hover:text-primary-400 hover:bg-navy-700/80 transition-all"
-                        aria-label={`${member.name} Twitter`}
-                      >
-                        <Twitter className="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.social?.github && (
-                      <a
-                        href={member.social.github}
-                        className="p-2 bg-navy-800/80 backdrop-blur-sm rounded-lg text-gray-400 hover:text-primary-400 hover:bg-navy-700/80 transition-all"
-                        aria-label={`${member.name} GitHub`}
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                </div>
+              {/* Photo wrapper with explicit size */}
+              <div className="relative w-full aspect-square rounded-full shadow-xl">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 [mask-image:radial-gradient(circle,white_40%,transparent_100%)] [-webkit-mask-image:radial-gradient(circle,white_40%,transparent_100%)] [mask-size:100%_100%]"
+                  priority={index === 0}
+                />
 
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-primary-400 transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-primary-400 text-sm font-medium mb-3">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-400 text-sm">
-                    {member.bio}
-                  </p>
+                {/* Social links overlay */}
+                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {member.social?.telegram && (
+                    <a
+                      href={member.social.telegram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-navy-800/80 backdrop-blur-sm rounded-lg text-gray-200 hover:text-primary-400 hover:bg-navy-700/80 transition-all"
+                      aria-label={`${member.name} Telegram`}
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                    </a>
+                  )}
+                  {member.social?.github && (
+                    <a
+                      href={member.social.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-navy-800/80 backdrop-blur-sm rounded-lg text-gray-200 hover:text-primary-400 hover:bg-navy-700/80 transition-all"
+                      aria-label={`${member.name} GitHub`}
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
+              </div>
 
-                {/* Hover Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary-500/0 to-primary-500/0 group-hover:from-primary-500/5 group-hover:to-transparent transition-all duration-300 pointer-events-none" />
+              {/* Member content */}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-primary-400 transition-colors">
+                  {member.name}
+                </h3>
+                <p className="text-primary-400 text-sm font-medium mb-3">
+                  {member.role}
+                </p>
+                <p className="text-gray-200 text-sm leading-relaxed">
+                  {member.bio}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -184,15 +137,17 @@ export const TeamSection: React.FC = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <p className="text-gray-400 mb-4">
+          <p className="text-gray-200 mb-4">
             Want to join our mission to secure the blockchain ecosystem?
           </p>
           <a
-            href="/careers"
+            href="https://t.me/FortKnox_sec"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-medium transition-colors"
           >
-            View Open Positions
-            <span className="text-xl">→</span>
+            Get in touch via Telegram
+            <MessageCircle className="w-4 h-4" />
           </a>
         </motion.div>
       </div>

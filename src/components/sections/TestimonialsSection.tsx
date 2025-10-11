@@ -1,56 +1,42 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import Image from 'next/image';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import Image from "next/image";
+import styles from "@/styles/sections/TestimonialsSection.module.css";
 
 const testimonials = [
   {
     id: 1,
-    author: 'Alex Thompson',
-    role: 'CTO',
-    company: 'DeFi Protocol X',
-    content: 'FortKnox Security\'s audit saved us from a critical vulnerability that could have cost millions. Their thorough approach and detailed reporting gave us confidence in our smart contract deployment.',
+    author: "@solanatrader",
+    role: "Early Holder",
+    company: "quntaAI community",
+    content:
+      "Signals hit two breakouts today. The bot is actually useful, not just hype. Holding $QNTA.",
     rating: 5,
-    image: 'https://i.pravatar.cc/150?img=1'
+    image: "https://i.pravatar.cc/150?img=61",
   },
   {
     id: 2,
-    author: 'Sarah Chen',
-    role: 'Founder',
-    company: 'NFT Marketplace',
-    content: 'The team\'s expertise in blockchain security is unmatched. They not only found vulnerabilities but also provided actionable solutions that improved our overall architecture.',
+    author: "@alpha_hunter",
+    role: "Telegram Mod",
+    company: "quntaAI",
+    content:
+      "The whale tracker + new pairs radar in Telegram is clutch. One-tap buy links save time.",
     rating: 5,
-    image: 'https://i.pravatar.cc/150?img=2'
+    image: "https://i.pravatar.cc/150?img=28",
   },
   {
     id: 3,
-    author: 'Michael Rodriguez',
-    role: 'Lead Developer',
-    company: 'Yield Farming Platform',
-    content: 'Working with FortKnox was a game-changer. Their comprehensive audit process and post-audit support helped us launch with confidence. Highly recommended!',
+    author: "@defiresearch",
+    role: "Researcher",
+    company: "Solana",
+    content:
+      "Thread summarizer + tokenomics decode is perfect for fast due diligence during hype cycles.",
     rating: 5,
-    image: 'https://i.pravatar.cc/150?img=3'
+    image: "https://i.pravatar.cc/150?img=45",
   },
-  {
-    id: 4,
-    author: 'Emma Williams',
-    role: 'Security Lead',
-    company: 'DEX Protocol',
-    content: 'The depth of analysis and attention to detail in their audit reports is impressive. They caught edge cases we hadn\'t even considered.',
-    rating: 5,
-    image: 'https://i.pravatar.cc/150?img=4'
-  },
-  {
-    id: 5,
-    author: 'David Kim',
-    role: 'CEO',
-    company: 'Staking Protocol',
-    content: 'FortKnox Security has been our trusted partner for multiple audits. Their consistent quality and professionalism make them our go-to security firm.',
-    rating: 5,
-    image: 'https://i.pravatar.cc/150?img=5'
-  }
 ];
 
 export const TestimonialsSection: React.FC = () => {
@@ -61,7 +47,9 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   const goToTestimonial = (index: number) => {
@@ -69,34 +57,33 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 to-navy-900/10" />
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section className={styles.section}>
+      {/* Minimal dotted background */}
+      <div className={styles.pattern} />
+
+      <div className="container mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium mb-4">
-            Client Testimonials
+          <span className="inline-block px-2 sm:px-3 lg:px-4 py-1 sm:py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+            Community Voices
           </span>
-          <h2 className="text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-            What Our Clients Say
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-3 sm:mb-4 lg:mb-6">
+            Why Traders Like quntaAI
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Don't just take our word for it - hear from the projects we've helped secure
+          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 max-w-3xl mx-auto px-3 sm:px-4">
+            Real feedback from early users of the bot, signals, and dashboards
           </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Quote Icon */}
-            <Quote className="absolute -top-8 -left-8 w-16 h-16 text-primary-500/10" />
-
+            <Quote className="absolute -top-2 sm:-top-4 lg:-top-8 -left-2 sm:-left-4 lg:-left-8 w-6 h-6 sm:w-8 sm:h-8 lg:w-16 lg:h-16 text-primary-500/10 z-10" />
             {/* Testimonial Carousel */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -107,35 +94,33 @@ export const TestimonialsSection: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 className="text-center"
               >
-                <div className="card-gradient p-8 lg:p-12 rounded-2xl">
+                <div className="card-gradient p-3 sm:p-4 lg:p-6 xl:p-8 2xl:p-12 rounded-2xl">
                   {/* Stars */}
-                  <div className="flex justify-center gap-1 mb-6">
-                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary-400 text-primary-400" />
-                    ))}
+                  <div className="flex justify-center gap-1 mb-3 sm:mb-4 lg:mb-6">
+                    {[...Array(testimonials[currentIndex].rating)].map(
+                      (_, i) => (
+                        <Star
+                          key={i}
+                          className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 fill-primary-400 text-primary-400"
+                        />
+                      )
+                    )}
                   </div>
 
                   {/* Content */}
-                  <p className="text-lg lg:text-xl text-gray-300 mb-8 italic">
+                  <p className="text-xs sm:text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 italic leading-relaxed">
                     "{testimonials[currentIndex].content}"
                   </p>
 
                   {/* Author */}
-                  <div className="flex items-center justify-center gap-4">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary-500/30">
-                      <Image
-                        src={testimonials[currentIndex].image}
-                        alt={testimonials[currentIndex].author}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="text-left">
-                      <h4 className="text-white font-semibold">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 lg:gap-4">
+                    <div className="text-center items-center">
+                      <h4 className="text-[#ffb41a] font-semibold text-xs sm:text-sm lg:text-base">
                         {testimonials[currentIndex].author}
                       </h4>
-                      <p className="text-gray-400 text-sm">
-                        {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
+                      <p className="text-gray-200 text-xs sm:text-sm">
+                        {testimonials[currentIndex].role} at{" "}
+                        {testimonials[currentIndex].company}
                       </p>
                     </div>
                   </div>
@@ -146,63 +131,36 @@ export const TestimonialsSection: React.FC = () => {
             {/* Navigation Arrows */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full lg:-translate-x-1/2 p-3 rounded-full bg-navy-800/50 hover:bg-navy-700/50 text-gray-400 hover:text-primary-400 transition-all duration-300"
+              className="absolute left-1 sm:left-2 lg:left-0 top-1/2 -translate-y-1/2 -translate-x-full lg:-translate-x-1/2 p-1.5 sm:p-2 lg:p-3 rounded-full bg-navy-800/50 hover:bg-navy-700/50 text-gray-200 hover:text-primary-400 transition-all duration-300 touch-target"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full lg:translate-x-1/2 p-3 rounded-full bg-navy-800/50 hover:bg-navy-700/50 text-gray-400 hover:text-primary-400 transition-all duration-300"
+              className="absolute right-1 sm:right-2 lg:right-0 top-1/2 -translate-y-1/2 translate-x-full lg:translate-x-1/2 p-1.5 sm:p-2 lg:p-3 rounded-full bg-navy-800/50 hover:bg-navy-700/50 text-gray-200 hover:text-primary-400 transition-all duration-300 touch-target"
               aria-label="Next testimonial"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6" />
             </button>
           </div>
 
           {/* Dots Navigation */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-1.5 mt-4 sm:mt-6 lg:mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToTestimonial(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 touch-target ${
                   index === currentIndex
-                    ? 'w-8 bg-primary-400'
-                    : 'bg-gray-600 hover:bg-gray-500'
+                    ? "bg-primary-400 scale-110"
+                    : "bg-gray-600 hover:bg-gray-500 hover:scale-105"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
         </div>
-
-        {/* Client Logos */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16"
-        >
-          <p className="text-center text-gray-400 mb-8">
-            Trusted by leading blockchain projects
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-50">
-            {['Uniswap', 'Aave', 'Compound', 'Curve', 'SushiSwap'].map((project, index) => (
-              <motion.div
-                key={project}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.1 * index }}
-                viewport={{ once: true }}
-                className="text-2xl font-bold text-gray-600 hover:text-primary-400 transition-colors"
-              >
-                {project}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,112 +1,89 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Logo } from '@/components/ui/Logo';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/ui/Logo";
+import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import styles from "@/styles/layout/Navigation.module.css";
 
 const navItems = [
-  { label: 'Home', href: '/' },
-  {
-    label: 'Services',
-    href: '/services',
-    children: [
-      { label: 'Smart Contract Audit', href: '/services/smart-contract-audit' },
-      { label: 'Security Consulting', href: '/services/security-consulting' },
-      { label: 'Penetration Testing', href: '/services/penetration-testing' },
-      { label: 'Code Review', href: '/services/code-review' },
-    ],
-  },
-  { label: 'About', href: '/about' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Contact', href: '/contact' },
+  // { label: "Home", href: "/" },
+  { label: "Launch Time", href: "/#launch-time" },
+  { label: "Utilities", href: "/#utilities" },
+  { label: "Tokenomics", href: "/#tokenomics" },
+  { label: "Roadmap", href: "/#roadmap" },
+  { label: "How to Buy", href: "/#how-to-buy" },
 ];
 
 export const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (isMobileMenuOpen && !target.closest("nav")) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   return (
     <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-navy-900/95 backdrop-blur-lg shadow-lg shadow-primary-500/10'
-          : 'bg-transparent'
-      )}
+      className={cn(styles.nav, isScrolled && styles.navScrolled)}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Logo size="md" />
+          <Link href="/" className="flex items-center flex-shrink-0 min-w-0">
+            <Logo size="md" className="sm:scale-100 scale-90" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 mx-8 flex-1 justify-center">
             {navItems.map((item) => (
-              <div
+              <Link
                 key={item.label}
-                className="relative"
-                onMouseEnter={() => item.children && setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                href={item.href}
+                className="text-gray-300 hover:text-primary-400 transition-colors duration-300 font-medium text-sm xl:text-base"
               >
-                <Link
-                  href={item.href}
-                  className="flex items-center gap-1 text-gray-300 hover:text-primary-400 transition-colors duration-300 font-medium"
-                >
-                  {item.label}
-                  {item.children && <ChevronDown className="w-4 h-4" />}
-                </Link>
-
-                {/* Dropdown Menu */}
-                <AnimatePresence>
-                  {item.children && activeDropdown === item.label && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-64 bg-navy-800 rounded-lg shadow-xl overflow-hidden"
-                    >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          className="block px-4 py-3 text-gray-300 hover:text-primary-400 hover:bg-navy-700 transition-all duration-300"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                {item.label}
+              </Link>
             ))}
-            
-            <Link href="/audit-request" className="btn-primary">
-              Request Audit
-            </Link>
+          </div>
+
+          {/* Buy Button */}
+          <div className="hidden lg:flex items-center">
+            <a
+              href="https://pump.fun/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-sm xl:text-base"
+            >
+              Buy on pump.fun
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-gray-300 hover:text-primary-400 transition-colors"
+            className="lg:hidden text-gray-300 hover:text-primary-400 transition-colors p-2 -mr-2"
+            aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -118,44 +95,33 @@ export const Navigation: React.FC = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-navy-900/95 backdrop-blur-lg border-t border-primary-500/10"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden bg-navy-900/95 backdrop-blur-lg border-t border-primary-500/10 overflow-hidden"
           >
-            <div className="container mx-auto px-4 py-4">
+            <div className="container mx-auto px-4 sm:px-6 py-4 space-y-2">
               {navItems.map((item) => (
-                <div key={item.label} className="mb-2">
-                  <Link
-                    href={item.href}
-                    className="block py-2 text-gray-300 hover:text-primary-400 transition-colors duration-300 font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                  {item.children && (
-                    <div className="ml-4">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          className="block py-2 text-sm text-gray-400 hover:text-primary-400 transition-colors duration-300"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block py-3 px-4 text-gray-300 hover:text-primary-400 hover:bg-navy-800/50 transition-all duration-300 font-medium rounded-lg"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
               ))}
-              <Link
-                href="/audit-request"
-                className="btn-primary w-full text-center mt-4"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Request Audit
-              </Link>
+              <div className="pt-2 border-t border-primary-500/10 mt-4">
+                <a
+                  href="https://pump.fun/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full text-center block"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Buy on pump.fun
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

@@ -1,0 +1,19 @@
+.section {
+	position: relative;
+	padding: 2rem 0;
+	overflow: hidden;
+	background: var(--background);
+}
+@media (min-width: 640px) { .section { padding: 2rem 0; } }
+@media (min-width: 1024px) { .section { padding: 2rem 0; } }
+@media (min-width: 1280px) { .section { padding: 4rem 0; } }
+
+.pattern {
+	position: absolute;
+	inset: 0;
+	opacity: .3;
+	background-image: radial-gradient(var(--dot-strong) 1px, transparent 1px);
+	background-size: 22px 22px;
+}
+
+

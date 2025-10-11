@@ -1,0 +1,19 @@
+.footer {
+	@apply bg-transparent border-t border-primary-500/10 relative z-10;
+}
+
+.newsletter {
+	@apply border-b border-primary-500/10;
+}
+
+/* Even distribution on large screens */
+@media (min-width: 1024px) {
+	.footer .container > div:first-child {
+		/* the main grid wrapper */
+	}
+	.footer .container .grid {
+		justify-content: space-around;
+	}
+}
+
+

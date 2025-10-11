@@ -1,0 +1,27 @@
+.section {
+	position: relative;
+	padding: 2rem 0;
+	overflow: hidden;
+	background: var(--background);
+}
+@media (min-width: 640px) { .section { padding: 2rem 0; } }
+@media (min-width: 1024px) { .section { padding: 2rem 0; } }
+@media (min-width: 1280px) { .section { padding: 4rem 0; } }
+
+.pattern {
+	position: absolute;
+	inset: 0;
+	opacity: .3;
+	background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+	background-size: 18px 18px;
+}
+
+.imageCard {
+	border-radius: 1rem;
+	overflow: hidden;
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(255,165,0,0.10);
+	background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.0) 100%);
+}
+
+

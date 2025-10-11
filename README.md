@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FortKnox Security - Blockchain Security Audit Firm
+
+A professional website for FortKnox Security, a leading blockchain security audit firm specializing in smart contract audits, penetration testing, and security consulting for DeFi protocols.
+
+## Features
+
+- **Professional Design**: Modern, dark theme with orange accents
+- **Multi-step Audit Request Form**: Comprehensive form with validation
+- **Portfolio Showcase**: Real audit examples with vulnerability breakdowns
+- **Client Testimonials**: Genuine feedback from audited projects
+- **Responsive Design**: Works perfectly on all devices
+- **Email Integration**: SMTP-based contact form functionality
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file with your SMTP credentials:
 
-## Learn More
+```env
+SMTP_USER=support@fortknox-security.xyz
+SMTP_PASS=your_email_password
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This website is designed to be deployed on Plesk or any web hosting service. See the `DEPLOYMENT_GUIDE.md` for detailed instructions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+- **Framework**: Next.js 15
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Forms**: React Hook Form with Zod validation
+- **Email**: Nodemailer with SMTP
+- **Icons**: Lucide React
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For support or questions, contact us at support@fortknox-security.xyz

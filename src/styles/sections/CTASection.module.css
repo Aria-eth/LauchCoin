@@ -1,0 +1,19 @@
+.section {
+	position: relative;
+	padding: 2rem 0; /* py-8 */
+	overflow: hidden;
+	background: var(--background);
+}
+@media (min-width: 640px) { .section { padding: 2rem 0; } } /* sm:py-12 */
+@media (min-width: 1024px) { .section { padding: 2rem 0; } } /* lg:py-20 */
+@media (min-width: 1280px) { .section { padding: 4rem 0; } } /* xl:py-24 */
+
+.pattern {
+	position: absolute;
+	inset: 0;
+	opacity: .3;
+	background-image: radial-gradient(var(--dot-strong) 1px, transparent 1px);
+	background-size: 22px 22px;
+}
+
+
