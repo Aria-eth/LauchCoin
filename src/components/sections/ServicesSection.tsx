@@ -175,18 +175,14 @@ export const ServicesSection: React.FC = () => {
                         className="flex items-start gap-1 sm:gap-2"
                       >
                         <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-xs text-gray-500 leading-tight">
+                        <span className="text-xs leading-tight" style={{ color: "#00ff7e" }}>
                           {feature}
                         </span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* CTA */}
-                  <div className="flex items-center text-primary-400 font-medium text-xs sm:text-sm group-hover:text-primary-300 transition-colors">
-                    Explore Utility
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 group-hover:translate-x-2 transition-transform" />
-                  </div>
+                  
 
                   {/* Hover Gradient Effect */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary-500/0 to-primary-500/0 group-hover:from-primary-500/10 group-hover:to-transparent transition-all duration-300 pointer-events-none" />

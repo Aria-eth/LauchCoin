@@ -2,7 +2,7 @@
 	position: relative;
 	padding: 2rem 0; /* py-8 */
 	overflow: hidden;
-	background: var(--background);
+	background: var(--theme-gradient), var(--background);
 }
 @media (min-width: 640px) { .section { padding: 2rem 0; } } /* sm:py-12 */
 @media (min-width: 1024px) { .section { padding: 2rem 0; } } /* lg:py-20 */

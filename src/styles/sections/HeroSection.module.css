@@ -3,7 +3,7 @@
 	padding-top: 2rem; /* pt-20 */
 	padding-bottom: 1rem; /* pb-4 */
 	overflow: hidden;
-	background: var(--background);
+	background: var(--theme-gradient), var(--background);
 }
 @media (min-width: 640px) { /* sm */
 	.section {

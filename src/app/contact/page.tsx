@@ -113,7 +113,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 overflow-hidden" style={{ minHeight: "inherit" }}>
         {/* Galactic Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-purple-900/20 to-indigo-900/30" />
 
@@ -203,6 +203,48 @@ export default function ContactPage() {
 
         <div className="absolute inset-0 hero-pattern opacity-5" />
 
+        {/* Mid-field stars to cover entire section height */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Mid large */}
+          <GalacticStar className="w-2 h-2 top-[12%] left-[8%]" delay={0.3} />
+          <GalacticStar className="w-2 h-2 top-[22%] right-[12%]" delay={0.8} />
+          <GalacticStar className="w-2 h-2 top-[48%] left-[18%]" delay={1.4} />
+          <GalacticStar className="w-2 h-2 top-[66%] right-[28%]" delay={1.9} />
+
+          {/* Mid medium */}
+          <GalacticStar className="w-1.5 h-1.5 top-[18%] left-[35%]" delay={0.5} />
+          <GalacticStar className="w-1.5 h-1.5 top-[30%] right-[42%]" delay={1.1} />
+          <GalacticStar className="w-1.5 h-1.5 top-[38%] left-[62%]" delay={1.6} />
+          <GalacticStar className="w-1.5 h-1.5 top-[58%] right-[8%]" delay={2.1} />
+          <GalacticStar className="w-1.5 h-1.5 top-[72%] left-[48%]" delay={2.6} />
+
+          {/* Mid small */}
+          <GalacticStar className="w-0.5 h-0.5 top-[14%] right-[26%]" delay={0.4} />
+          <GalacticStar className="w-0.5 h-0.5 top-[26%] left-[22%]" delay={0.9} />
+          <GalacticStar className="w-0.5 h-0.5 top-[44%] right-[18%]" delay={1.5} />
+          <GalacticStar className="w-0.5 h-0.5 top-[52%] left-[72%]" delay={2.0} />
+          <GalacticStar className="w-0.5 h-0.5 top-[62%] right-[52%]" delay={2.4} />
+          <GalacticStar className="w-0.5 h-0.5 top-[78%] left-[12%]" delay={2.8} />
+        </div>
+
+        {/* Bottom stars for full-height coverage */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <GalacticStar className="w-1.5 h-1.5 bottom-6 left-1/6" delay={0.4} />
+          <GalacticStar className="w-1.5 h-1.5 bottom-10 right-1/5" delay={0.9} />
+          <GalacticStar className="w-2 h-2 bottom-16 left-1/3" delay={1.3} />
+          <GalacticStar className="w-1.5 h-1.5 bottom-20 right-1/2" delay={1.8} />
+          <GalacticStar className="w-2 h-2 bottom-24 left-2/3" delay={2.2} />
+          <GalacticStar className="w-1.5 h-1.5 bottom-28 right-1/4" delay={2.6} />
+
+          <GalacticStar className="w-0.5 h-0.5 bottom-4 left-1/4" delay={0.2} />
+          <GalacticStar className="w-0.5 h-0.5 bottom-8 right-1/3" delay={0.7} />
+          <GalacticStar className="w-0.5 h-0.5 bottom-12 left-1/2" delay={1.1} />
+          <GalacticStar className="w-0.5 h-0.5 bottom-14 right-1/6" delay={1.5} />
+          <GalacticStar className="w-0.5 h-0.5 bottom-18 left-3/4" delay={1.9} />
+          <GalacticStar className="w-0.5 h-0.5 bottom-22 right-2/3" delay={2.3} />
+          <GalacticStar className="w-0.5 h-0.5 bottom-26 left-1/5" delay={2.7} />
+        </div>
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -217,8 +259,8 @@ export default function ContactPage() {
               className="mb-6"
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium">
-                <MessageCircle className="w-4 h-4" />
-                Join Our Community
+                <Zap className="w-4 h-4" />
+                Professional Launch Utility
               </span>
             </motion.div>
 
@@ -228,8 +270,8 @@ export default function ContactPage() {
               transition={{ delay: 0.3 }}
               className="text-5xl lg:text-7xl font-heading font-bold text-white mb-6"
             >
-              Get in
-              <span className="block gradient-text">Touch</span>
+              Professional
+              <span className="block gradient-text">Launch Utility</span>
             </motion.h1>
 
             <motion.p
@@ -238,9 +280,10 @@ export default function ContactPage() {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 mb-8"
             >
-              Join our Telegram community for instant support, security
-              discussions, and direct access to our team of blockchain security
-              experts.
+              Get expert help setting up and using our launch coin utilities—
+              real‑time trading signals, Telegram alpha bot, research copilot,
+              and on‑chain dashboards. Talk to our team for onboarding,
+              integrations, and best‑practice guidance.
             </motion.p>
 
             <motion.div
@@ -255,15 +298,15 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="btn-primary flex items-center gap-2 group text-lg px-8 py-4"
               >
-                <MessageCircle className="w-6 h-6" />
-                Join Telegram Chat
+                Buy on pump.fun
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 href="/audit-request"
-                className="btn-secondary text-lg px-8 py-4"
+                className="btn-secondary text-lg px-8 py-4 flex items-center gap-2 group"
               >
-                Request Audit
+                <MessageCircle className="w-6 h-6" />
+                join Telegram
               </Link>
             </motion.div>
           </motion.div>
@@ -271,7 +314,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-24 relative overflow-hidden">
+      {/* <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 gradient-bg" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -354,10 +397,10 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Community Testimonials */}
-      <section className="py-24 relative overflow-hidden">
+      {/* <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-5" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -408,10 +451,10 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
+      {/* <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 gradient-bg-radial" />
         <div className="absolute inset-0 bg-navy-900/90" />
         <div className="absolute inset-0 hero-pattern opacity-10" />
@@ -458,7 +501,7 @@ export default function ContactPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

@@ -72,7 +72,7 @@ export const RoadmapSection: React.FC = () => {
               </div>
               <ul className="space-y-1">
                 {phase.points.map((p) => (
-                  <li key={p} className="text-gray-300 text-xs sm:text-sm">• {p}</li>
+                  <li key={p} className="text-xs sm:text-sm" style={{ color: "#bcff28" }}>• {p}</li>
                 ))}
               </ul>
             </motion.div>
