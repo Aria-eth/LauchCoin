@@ -93,9 +93,9 @@ function formatEmailHTML(data: any) {
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #FFA500, #FF8C00); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .header { background: linear-gradient(135deg, #9945FF, #7C3AED); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
         .section { margin-bottom: 20px; }
-        .section h3 { color: #FFA500; border-bottom: 2px solid #FFA500; padding-bottom: 5px; }
+        .section h3 { color: #9945FF; border-bottom: 2px solid #9945FF; padding-bottom: 5px; }
         .field { margin-bottom: 10px; }
         .field strong { color: #555; }
         .urgent { background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; border-radius: 5px; }

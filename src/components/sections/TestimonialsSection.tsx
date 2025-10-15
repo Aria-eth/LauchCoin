@@ -115,7 +115,7 @@ export const TestimonialsSection: React.FC = () => {
                   {/* Author */}
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 lg:gap-4">
                     <div className="text-center items-center">
-                      <h4 className="text-[#ffb41a] font-semibold text-xs sm:text-sm lg:text-base">
+                      <h4 className="text-[#9945FF] font-semibold text-xs sm:text-sm lg:text-base">
                         {testimonials[currentIndex].author}
                       </h4>
                       <p className="text-gray-200 text-xs sm:text-sm">

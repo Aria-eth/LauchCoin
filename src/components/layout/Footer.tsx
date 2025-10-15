@@ -161,7 +161,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-start justify-between gap-6">
               {/* Quick Links */}
               <div className="basis-1/3 min-w-0">
-                <h4 className="text-[#ffa300] font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm sm:text-base">
+                <h4 className="text-[#9945FF] font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm sm:text-base">
                   Links
                 </h4>
                 <ul className="space-y-1 sm:space-y-2">
@@ -185,7 +185,7 @@ export const Footer: React.FC = () => {
 
               {/* Resources */}
               <div className="basis-1/3 min-w-0">
-                <h4 className="text-[#ffa500] font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm sm:text-base">
+                <h4 className="text-[#9945FF] font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm sm:text-base">
                   Resources
                 </h4>
                 <ul className="space-y-1 sm:space-y-2">
@@ -216,7 +216,7 @@ export const Footer: React.FC = () => {
 
               {/* Contact Info */}
               <div className="basis-1/3 min-w-0">
-                <h4 className="text-[#ffa500] font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm sm:text-base">
+                <h4 className="text-[#9945FF] font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm sm:text-base">
                   Contact
                 </h4>
                 <ul className="space-y-2 sm:space-y-3">
@@ -346,9 +346,14 @@ export const Footer: React.FC = () => {
                   <div className="flex flex-col items-center gap-3">
                     {/* Warning icon (centered, subtle pulse) */}
                     <motion.div
-                      className="text-amber-400"
+                      className="text-purple-400"
                       animate={{ scale: [1, 1.08, 2], y: [0, -1, 0] }}
-                      transition={{ duration: 1.1, repeat: Infinity, repeatDelay: 1.8, ease: "easeInOut" }}
+                      transition={{
+                        duration: 1.1,
+                        repeat: Infinity,
+                        repeatDelay: 1.8,
+                        ease: "easeInOut",
+                      }}
                     >
                       <AlertTriangle className="w-8 h-8" />
                     </motion.div>

@@ -21,7 +21,7 @@ const stats = [
     suffix: "%",
     label: "Liquidity Burn",
     description: "LP burned at migration",
-    color: "text-orange-400",
+    color: "text-purple-400",
   },
   {
     icon: Users,
@@ -45,7 +45,7 @@ const stats = [
     suffix: "%",
     label: "Uptime",
     description: "Bot reliability",
-    color: "text-yellow-400",
+    color: "text-purple-400",
   },
   {
     icon: Clock,

@@ -113,7 +113,10 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 overflow-hidden" style={{ minHeight: "inherit" }}>
+      <section
+        className="relative pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 overflow-hidden"
+        style={{ minHeight: "inherit" }}
+      >
         {/* Galactic Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-purple-900/20 to-indigo-900/30" />
 
@@ -212,37 +215,97 @@ export default function ContactPage() {
           <GalacticStar className="w-2 h-2 top-[66%] right-[28%]" delay={1.9} />
 
           {/* Mid medium */}
-          <GalacticStar className="w-1.5 h-1.5 top-[18%] left-[35%]" delay={0.5} />
-          <GalacticStar className="w-1.5 h-1.5 top-[30%] right-[42%]" delay={1.1} />
-          <GalacticStar className="w-1.5 h-1.5 top-[38%] left-[62%]" delay={1.6} />
-          <GalacticStar className="w-1.5 h-1.5 top-[58%] right-[8%]" delay={2.1} />
-          <GalacticStar className="w-1.5 h-1.5 top-[72%] left-[48%]" delay={2.6} />
+          <GalacticStar
+            className="w-1.5 h-1.5 top-[18%] left-[35%]"
+            delay={0.5}
+          />
+          <GalacticStar
+            className="w-1.5 h-1.5 top-[30%] right-[42%]"
+            delay={1.1}
+          />
+          <GalacticStar
+            className="w-1.5 h-1.5 top-[38%] left-[62%]"
+            delay={1.6}
+          />
+          <GalacticStar
+            className="w-1.5 h-1.5 top-[58%] right-[8%]"
+            delay={2.1}
+          />
+          <GalacticStar
+            className="w-1.5 h-1.5 top-[72%] left-[48%]"
+            delay={2.6}
+          />
 
           {/* Mid small */}
-          <GalacticStar className="w-0.5 h-0.5 top-[14%] right-[26%]" delay={0.4} />
-          <GalacticStar className="w-0.5 h-0.5 top-[26%] left-[22%]" delay={0.9} />
-          <GalacticStar className="w-0.5 h-0.5 top-[44%] right-[18%]" delay={1.5} />
-          <GalacticStar className="w-0.5 h-0.5 top-[52%] left-[72%]" delay={2.0} />
-          <GalacticStar className="w-0.5 h-0.5 top-[62%] right-[52%]" delay={2.4} />
-          <GalacticStar className="w-0.5 h-0.5 top-[78%] left-[12%]" delay={2.8} />
+          <GalacticStar
+            className="w-0.5 h-0.5 top-[14%] right-[26%]"
+            delay={0.4}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 top-[26%] left-[22%]"
+            delay={0.9}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 top-[44%] right-[18%]"
+            delay={1.5}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 top-[52%] left-[72%]"
+            delay={2.0}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 top-[62%] right-[52%]"
+            delay={2.4}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 top-[78%] left-[12%]"
+            delay={2.8}
+          />
         </div>
 
         {/* Bottom stars for full-height coverage */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <GalacticStar className="w-1.5 h-1.5 bottom-6 left-1/6" delay={0.4} />
-          <GalacticStar className="w-1.5 h-1.5 bottom-10 right-1/5" delay={0.9} />
+          <GalacticStar
+            className="w-1.5 h-1.5 bottom-10 right-1/5"
+            delay={0.9}
+          />
           <GalacticStar className="w-2 h-2 bottom-16 left-1/3" delay={1.3} />
-          <GalacticStar className="w-1.5 h-1.5 bottom-20 right-1/2" delay={1.8} />
+          <GalacticStar
+            className="w-1.5 h-1.5 bottom-20 right-1/2"
+            delay={1.8}
+          />
           <GalacticStar className="w-2 h-2 bottom-24 left-2/3" delay={2.2} />
-          <GalacticStar className="w-1.5 h-1.5 bottom-28 right-1/4" delay={2.6} />
+          <GalacticStar
+            className="w-1.5 h-1.5 bottom-28 right-1/4"
+            delay={2.6}
+          />
 
           <GalacticStar className="w-0.5 h-0.5 bottom-4 left-1/4" delay={0.2} />
-          <GalacticStar className="w-0.5 h-0.5 bottom-8 right-1/3" delay={0.7} />
-          <GalacticStar className="w-0.5 h-0.5 bottom-12 left-1/2" delay={1.1} />
-          <GalacticStar className="w-0.5 h-0.5 bottom-14 right-1/6" delay={1.5} />
-          <GalacticStar className="w-0.5 h-0.5 bottom-18 left-3/4" delay={1.9} />
-          <GalacticStar className="w-0.5 h-0.5 bottom-22 right-2/3" delay={2.3} />
-          <GalacticStar className="w-0.5 h-0.5 bottom-26 left-1/5" delay={2.7} />
+          <GalacticStar
+            className="w-0.5 h-0.5 bottom-8 right-1/3"
+            delay={0.7}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 bottom-12 left-1/2"
+            delay={1.1}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 bottom-14 right-1/6"
+            delay={1.5}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 bottom-18 left-3/4"
+            delay={1.9}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 bottom-22 right-2/3"
+            delay={2.3}
+          />
+          <GalacticStar
+            className="w-0.5 h-0.5 bottom-26 left-1/5"
+            delay={2.7}
+          />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -432,7 +495,7 @@ export default function ContactPage() {
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                      className="w-4 h-4 fill-purple-400 text-purple-400"
                     />
                   ))}
                 </div>

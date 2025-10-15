@@ -235,8 +235,8 @@ export default function SecurityGuidelinesPage() {
                           vuln.severity === "Critical"
                             ? "bg-red-500/10 text-red-400"
                             : vuln.severity === "High"
-                            ? "bg-orange-500/10 text-orange-400"
-                            : "bg-yellow-500/10 text-yellow-400"
+                            ? "bg-purple-500/10 text-purple-400"
+                            : "bg-purple-500/10 text-purple-400"
                         }`}
                       >
                         {vuln.severity}

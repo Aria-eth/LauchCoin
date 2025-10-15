@@ -19,19 +19,13 @@ export const metadata: Metadata = {
     "quantaAI, pump.fun, Solana, meme coin, AI token, utility, trader tools, telegram bot",
   authors: [{ name: "quantaAI" }],
   icons: {
-    icon: [
-      { url: "/logo.jpeg", type: "image/jpeg" },
-      { url: "/favicon.ico" },
-    ],
-    apple: [
-      { url: "/logo.jpeg", type: "image/jpeg" },
-    ],
+    icon: [{ url: "/logo.jpeg", type: "image/jpeg" }, { url: "/favicon.ico" }],
+    apple: [{ url: "/logo.jpeg", type: "image/jpeg" }],
   },
   manifest: "/site.webmanifest",
   openGraph: {
     title: "quantaAI – AI-powered utility token",
-    description:
-      "Buy quantaAI on pump.fun and unlock AI trader utilities.",
+    description: "Buy quantaAI on pump.fun and unlock AI trader utilities.",
     images: ["/logo.jpeg"],
     type: "website",
   },
@@ -56,7 +50,7 @@ export default function RootLayout({
             style: {
               background: "#1a1a2e",
               color: "#fff",
-              border: "1px solid #FFA500",
+              border: "1px solid #9945FF",
             },
           }}
         />

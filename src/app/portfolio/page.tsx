@@ -654,7 +654,7 @@ export default function PortfolioPage() {
                             audit.severity === "High"
                               ? "bg-red-500/20 text-red-400"
                               : audit.severity === "Medium"
-                              ? "bg-yellow-500/20 text-yellow-400"
+                              ? "bg-purple-500/20 text-purple-400"
                               : "bg-green-500/20 text-green-400"
                           }`}
                         >
@@ -672,8 +672,8 @@ export default function PortfolioPage() {
                           <div className="w-2 h-2 bg-red-400 rounded-full"></div>
                           {audit.critical} Critical
                         </span>
-                        <span className="flex items-center gap-1 text-yellow-400">
-                          <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                        <span className="flex items-center gap-1 text-purple-400">
+                          <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
                           {audit.major} Major
                         </span>
                         <span className="flex items-center gap-1 text-blue-400">

@@ -67,7 +67,7 @@ New Audit Request: {{project_name}}
         padding: 20px;
       }
       .header {
-        background: linear-gradient(135deg, #ffa500, #ff8c00);
+        background: linear-gradient(135deg, #9945ff, #7c3aed);
         color: white;
         padding: 20px;
         border-radius: 8px;
@@ -77,8 +77,8 @@ New Audit Request: {{project_name}}
         margin-bottom: 20px;
       }
       .section h3 {
-        color: #ffa500;
-        border-bottom: 2px solid #ffa500;
+        color: #9945ff;
+        border-bottom: 2px solid #9945ff;
         padding-bottom: 5px;
       }
       .field {
