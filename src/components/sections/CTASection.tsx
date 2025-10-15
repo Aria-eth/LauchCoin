@@ -3,13 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, CheckCircle, Zap } from "lucide-react";
+import { ArrowRight, Shield, CheckCircle, Zap, SignalHigh, Bot, Brain, BarChart3 } from "lucide-react";
 import styles from "@/styles/sections/CTASection.module.css";
 
 const benefits = [
-  { icon: Shield, text: "100% Security Guarantee" },
-  { icon: Zap, text: "Fast 48-Hour Turnaround" },
-  { icon: CheckCircle, text: "Post-Audit Support" },
+  { icon: SignalHigh, text: "Real‑time Trading Signals" },
+  { icon: Bot, text: "Telegram Alpha Bot" },
+  { icon: Brain, text: "Research Copilot" },
+  { icon: BarChart3, text: "On‑chain Dashboards" },
 ];
 
 export const CTASection: React.FC = () => {

@@ -150,7 +150,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 overflow-hidden" style={{ minHeight: "inherit" }}>
         {/* Galactic Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-purple-900/20 to-indigo-900/30" />
 
@@ -240,6 +240,50 @@ export default function ServicesPage() {
 
         <div className="absolute inset-0 hero-pattern opacity-5" />
 
+        {/* Mid-field stars to cover entire section height */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Mid large */}
+          <Star className="w-2 h-2 top-[12%] left-[8%]" delay={0.3} />
+          <Star className="w-2 h-2 top-[22%] right-[12%]" delay={0.8} />
+          <Star className="w-2 h-2 top-[48%] left-[18%]" delay={1.4} />
+          <Star className="w-2 h-2 top-[66%] right-[28%]" delay={1.9} />
+
+          {/* Mid medium */}
+          <Star className="w-1.5 h-1.5 top-[18%] left-[35%]" delay={0.5} />
+          <Star className="w-1.5 h-1.5 top-[30%] right-[42%]" delay={1.1} />
+          <Star className="w-1.5 h-1.5 top=[38%] left-[62%]" delay={1.6} />
+          <Star className="w-1.5 h-1.5 top-[58%] right-[8%]" delay={2.1} />
+          <Star className="w-1.5 h-1.5 top-[72%] left-[48%]" delay={2.6} />
+
+          {/* Mid small */}
+          <Star className="w-0.5 h-0.5 top-[14%] right-[26%]" delay={0.4} />
+          <Star className="w-0.5 h-0.5 top-[26%] left-[22%]" delay={0.9} />
+          <Star className="w-0.5 h-0.5 top-[44%] right-[18%]" delay={1.5} />
+          <Star className="w-0.5 h-0.5 top-[52%] left-[72%]" delay={2.0} />
+          <Star className="w-0.5 h-0.5 top-[62%] right-[52%]" delay={2.4} />
+          <Star className="w-0.5 h-0.5 top-[78%] left-[12%]" delay={2.8} />
+        </div>
+
+        {/* Bottom stars to fill viewport height */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Medium bottom stars */}
+          <Star className="w-1.5 h-1.5 bottom-6 left-1/6" delay={0.4} />
+          <Star className="w-1.5 h-1.5 bottom-10 right-1/5" delay={0.9} />
+          <Star className="w-2 h-2 bottom-16 left-1/3" delay={1.3} />
+          <Star className="w-1.5 h-1.5 bottom-20 right-1/2" delay={1.8} />
+          <Star className="w-2 h-2 bottom-24 left-2/3" delay={2.2} />
+          <Star className="w-1.5 h-1.5 bottom-28 right-1/4" delay={2.6} />
+
+          {/* Small bottom stars */}
+          <Star className="w-0.5 h-0.5 bottom-4 left-1/4" delay={0.2} />
+          <Star className="w-0.5 h-0.5 bottom-8 right-1/3" delay={0.7} />
+          <Star className="w-0.5 h-0.5 bottom-12 left-1/2" delay={1.1} />
+          <Star className="w-0.5 h-0.5 bottom-14 right-1/6" delay={1.5} />
+          <Star className="w-0.5 h-0.5 bottom-18 left-3/4" delay={1.9} />
+          <Star className="w-0.5 h-0.5 bottom-22 right-2/3" delay={2.3} />
+          <Star className="w-0.5 h-0.5 bottom-26 left-1/5" delay={2.7} />
+        </div>
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -254,8 +298,8 @@ export default function ServicesPage() {
               className="mb-6"
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium">
-                <Shield className="w-4 h-4" />
-                Comprehensive Security Services
+                <Zap className="w-4 h-4" />
+                Professional Launch Utilities
               </span>
             </motion.div>
 
@@ -265,8 +309,8 @@ export default function ServicesPage() {
               transition={{ delay: 0.3 }}
               className="text-5xl lg:text-7xl font-heading font-bold text-white mb-6"
             >
-              Our
-              <span className="block gradient-text">Services</span>
+              Launch
+              <span className="block gradient-text">Website</span>
             </motion.h1>
 
             <motion.p
@@ -275,16 +319,16 @@ export default function ServicesPage() {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 mb-8"
             >
-              Comprehensive blockchain security solutions to protect your DeFi
-              protocols, smart contracts, and digital assets from
-              vulnerabilities and exploits.
+              Professional launch coin utilities to plan, launch, and grow your
+              token with confidence—real‑time trading signals, Telegram alpha
+              bot, research copilot, and on‑chain dashboards.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 relative overflow-hidden">
+      {/* <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-5" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -360,10 +404,10 @@ export default function ServicesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Process Section */}
-      <section className="py-24 relative overflow-hidden">
+      {/* <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 gradient-bg" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -401,10 +445,10 @@ export default function ServicesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
+      {/* <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 gradient-bg-radial" />
         <div className="absolute inset-0 bg-navy-900/90" />
         <div className="absolute inset-0 hero-pattern opacity-10" />
@@ -433,7 +477,7 @@ export default function ServicesPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

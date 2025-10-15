@@ -11,6 +11,8 @@
   --bg-accent: #111418; /* cards/sections */
   --dot: rgba(255, 180, 26, 0.08); /* soft fun orange */
   --dot-strong: rgba(255, 180, 26, 0.15);
+  /* Theme gradient */
+  --theme-gradient: linear-gradient(135deg, #60a5fa, #a78bfa 50%, #f472b6);
 }
 
 @layer base {
@@ -63,16 +65,22 @@
 @layer components {
   /* Gradient backgrounds */
   .gradient-bg {
-    background: var(--background);
+    background: var(--theme-gradient), var(--background);
   }
 
   .gradient-bg-radial {
-    background: var(--background);
+    background: var(--theme-gradient), var(--background);
+  }
+
+  /* Utility class to apply the theme gradient anywhere */
+  .theme-gradient {
+    background: var(--theme-gradient), var(--background);
   }
 
   /* Text gradients */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent;
+    @apply bg-clip-text text-transparent;
+    background-image: var(--theme-gradient);
   }
 
   /* Glow effects */
